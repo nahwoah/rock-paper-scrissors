@@ -1,5 +1,3 @@
-//console.log("Hello world!");
-
 let cpu_score = 0;
 let player_score = 0;
 
@@ -7,14 +5,13 @@ function getComputerChoice(){
     return Math.floor(Math.random() * 3)+1
 }
 
-//console.log(cpu());
-
 function getHumanChoice(){
-    const choice = prompt("Choose Rock, Paper or Scissors. Type 1, 2 or 3");
-    // if (choice < '1' && choice > '3'){
-    //     console.log("Please choose between 1, 2 or 3");
-    //     getHumanChoice();
-    // }
+    const input = prompt("Choose Rock, Paper or Scissors. Type 1, 2 or 3");
+    const choice = Number(input);
+    if (choice < 1 || choice > 3){
+        console.log("Please choose between 1, 2 or 3");
+        return getHumanChoice();
+    }
     return choice;
 }
 
@@ -22,7 +19,9 @@ function play(){
     cpu = getComputerChoice();
     choice = getHumanChoice();
 
-    console.log(cpu, choice);
+    if(choice >= 1 && choice <= 3){
+        console.log(cpu + ` and you chose ${choice}`);
+    }
 
     if (cpu === 1 && choice == 1){
         console.log("Computer chose Rock!");
@@ -41,41 +40,52 @@ function play(){
         cpu_score++;
     } else if (cpu === 2 && choice == 2){
         console.log("Computer chose Paper!");
-        console.log("You draw!");
+        console.log("Draw!");
     } else if (cpu === 2 && choice == 3){
         console.log("Computer chose Paper!");
         console.log("You win!");
         player_score++;
     } else if (cpu === 3 && choice == 1){
         console.log("Computer chose Scissors!");
-        console.log("You lose!");
-        cpu_score++;
-    } else if (cpu === 3 && choice == 2){
-        console.log("Computer chose Scissors!");
         console.log("You win!");
         player_score++;
+    } else if (cpu === 3 && choice == 2){
+        console.log("Computer chose Scissors!");
+        console.log("You lose!");
+        cpu_score++;
     } else if (cpu === 3 && choice == 3){
         console.log("Computer chose Scissors!");
-        console.log("You draw!");
+        console.log("Draw!");
     }
 
-    const replay = prompt("Want to play again? y/n");
-    if (replay == 'y'){
-        console.log("The score is CPU: ", cpu_score, " Player: ", player_score);
-        play();
+    
+    if(cpu_score == 3){
+        console.log('CPU scored 3! CPU wins!');
+        const reset = prompt("Want to keep playing? y/n");
+        if (reset == 'y'){
+            cpu_score = 0;
+            player_score = 0;
+            console.clear()
+            return play();
+        }
+    } else if(player_score == 3){
+        console.log('Player scored 3! The Player wins!');
+        const reset = prompt("Want to keep playing? y/n");
+        if (reset == 'y'){
+            cpu_score = 0;
+            player_score = 0;
+            console.clear()
+            return play();
+        }
     } else{
-        console.log("The score is CPU: ", cpu_score, " Player: ", player_score);
+        return;
+    }
+
+    console.log("The score is CPU: ", cpu_score, " Player: ", player_score);
+    const replay = prompt("Do you want to play again? y/n");
+    if (replay == 'y'){
+        return play();
     }
 }
 
 play();
-
-//const choice = prompt("Choose Rock, Paper or Scissors. Type 1, 2 or 3");
-
-
-
-// while (choice != 1 || choice != 2 || choice != 3){
-//     choice = prompt("Please choose between 1, 2 or 3");
-// }
-
-
