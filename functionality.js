@@ -11,7 +11,6 @@ btns.addEventListener("click", (event) => {
     let txt = document.querySelector("#txt");
     let scoreText = document.querySelector("#score");
     let target = event.target;
-    //console.log(txt);
 
     switch (target.id) {
         case 'rock':
@@ -50,7 +49,6 @@ btns.addEventListener("click", (event) => {
     }
     
     scoreText.innerText = `The score is CPU: ${cpu_score} Player: ${player_score}`;
-    //console.log("The score is CPU: ", cpu_score, "Player: ", player_score);
 });
 
 function play(){
