@@ -50,10 +50,3 @@ btns.addEventListener("click", (event) => {
     
     scoreText.innerText = `The score is CPU: ${cpu_score} Player: ${player_score}`;
 });
-
-function play(){
-    
-    
-}
-
-play();
