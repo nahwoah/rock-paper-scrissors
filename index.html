@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tick Tack Toe</title>
+    <style>
+        button{
+            font-size: 15px;
+        }
+        button:hover{
+            box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+            transition-duration: 0.3s;
+        }
+
+        button:active{
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        #txt{
+            color:#3882f6;
+            display: flex;
+            justify-content: center;
+            width: 1000px;
+            font-size: 40px;
+        }
+        #score{
+            color:#3882f6;
+            display: flex;
+            justify-content: center;
+            width: 1000px;
+            font-size: 40px;
+        }
+    </style>
 </head>
-<script src="functionality.js"></script>
+<script src="functionality.js" defer></script>
 <body style="background-color:rgb(49, 48, 48)">
-    
+    <div class="buttons" style="display:flex; justify-content: center; height: 300px; width: 1000px; align-items: center; gap: 30px;">
+        <button id="rock" class="rock" style="width: 200px;height: 100px; background-color: antiquewhite; border-radius: 5px; border: none; outline: 2px solid #3882f6;">Rock</button>
+        <button id="paper" class="paper" style="width: 200px;height: 100px; background-color: antiquewhite; border-radius: 5px; border: none; outline: 2px solid #3882f6;">Paper</button>
+        <button id="scissors" class="scissors" style="width: 200px;height: 100px; background-color: antiquewhite; border-radius: 5px; border: none; outline: 2px solid #3882f6;">Scissors</button>
+    </div>
+    <p id="txt"></p>
+    <p id="score"></p>
 </body>
 </html>
